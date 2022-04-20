@@ -30,18 +30,19 @@ const calcularGanancia = (monto) => {
   }
 };
 
-if (edad == null || /\D/.test(edad) || edad == "") {
+while (edad == null || /\D/.test(edad) || edad == "") {
   edad = prompt("Entre un número VÁLIDO: ");
+} 
+if (edad < 18) {
+  alert(
+    `Hola ${nombre.toUpperCase()}, por tu edad no es conveniente que veas el contenido de nuestra página. Lo lamentamos.`
+  );
 } else {
-  if (edad < 18) {
-    alert(
-      `Hola ${nombre.toUpperCase()}, por tu edad no es conveniente que veas el contenido de nuestra página. Lo lamentamos.`
-    );
-  } else {
-    alert(`Hola ${nombre.toUpperCase()}, tienes ${edad} años. ¡Disfruta nuestro contenido!`);
-    let monto = prompt("¿Cuánto dinero quieres invertir?");
-    const montoNumber = parseInt(monto);
+  alert(
+    `Hola ${nombre.toUpperCase()}, tienes ${edad} años. ¡Disfruta nuestro contenido!`
+  );
+  let monto = prompt("¿Cuánto dinero quieres invertir?");
+  const montoNumber = parseInt(monto);
 
-    calcularGanancia(montoNumber);
-  }
+  calcularGanancia(montoNumber);
 }
