@@ -1,5 +1,5 @@
 const nombre = prompt("¿Cómo te llamas?");
-const edad = prompt("¿Cuántos años tienes?");
+let edad = parseInt(prompt("¿Cuántos años tienes?"));
 
 const calcularGanancia = (monto) => {
   const breakPoints = [100, 500, 1500, 5000, 10000, 50000];
@@ -30,14 +30,18 @@ const calcularGanancia = (monto) => {
   }
 };
 
-if (edad < 18) {
-  console.log(
-    `Hola ${nombre}, por tu edad no es conveniente que veas el contenido de nuestra página. Lo lamentamos.`
-  );
+if (edad == null || /\D/.test(edad) || edad == "") {
+  edad = prompt("Entre un número VÁLIDO: ");
 } else {
-  alert(`Hola ${nombre}, tienes ${edad} años. ¡Disfruta nuestro contenido!`);
-  let monto = prompt("¿Cuánto dinero quieres invertir?");
-  const montoNumber = parseInt(monto);
+  if (edad < 18) {
+    alert(
+      `Hola ${nombre.toUpperCase()}, por tu edad no es conveniente que veas el contenido de nuestra página. Lo lamentamos.`
+    );
+  } else {
+    alert(`Hola ${nombre.toUpperCase()}, tienes ${edad} años. ¡Disfruta nuestro contenido!`);
+    let monto = prompt("¿Cuánto dinero quieres invertir?");
+    const montoNumber = parseInt(monto);
 
-  calcularGanancia(montoNumber);
+    calcularGanancia(montoNumber);
+  }
 }
